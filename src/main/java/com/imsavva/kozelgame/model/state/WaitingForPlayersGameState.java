@@ -6,12 +6,16 @@ import com.imsavva.kozelgame.model.Scene;
 import com.imsavva.kozelgame.model.beans.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class WaitingForPlayersGameState extends AbstractGameState {
 
     @Autowired
     private Function<KozelGame, GameState> newRoundGameStateFactory;
+
+    @Autowired
+    private BiFunction<Integer, Integer, Integer> randomIntGenerator;
 
     public WaitingForPlayersGameState(KozelGame game) {
         super(game);
@@ -25,6 +29,9 @@ public class WaitingForPlayersGameState extends AbstractGameState {
         players.add(player);
 
         if (players.size() == GameConstants.NUMBER_OF_PLAYERS) {
+            var dealer = players.get(randomIntGenerator.apply(0, players.size()));
+            dealer.setCurrent(true);
+            dealer.setDealer(true);
             this.game.setState(newRoundGameStateFactory.apply(this.game));
         }
     }

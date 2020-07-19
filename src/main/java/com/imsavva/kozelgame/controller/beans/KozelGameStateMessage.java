@@ -10,7 +10,6 @@ public class KozelGameStateMessage {
     private GameState state;
     private Player leftNeighbour;
     private Player rightNeighbour;
-    private Player currentPlayer;
     private Player currentUser;
 
     // teams / teams generation after all talon actions done (in NewRoundState),

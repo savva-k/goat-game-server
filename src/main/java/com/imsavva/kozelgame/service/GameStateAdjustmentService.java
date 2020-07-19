@@ -18,7 +18,6 @@ public class GameStateAdjustmentService {
 
         message.setTableId(game.getTableId());
         message.setCurrentUser(player);
-        message.setCurrentPlayer(game.getCurrentPlayer());
         message.setCurrentScene(game.getCurrentScene());
         message.setFinished(game.isFinished());
         message.setStarted(game.isStarted());

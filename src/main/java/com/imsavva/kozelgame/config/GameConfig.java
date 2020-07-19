@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Scope;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -36,8 +38,16 @@ public class GameConfig {
     }
 
     @Bean
-    Function<KozelGame, GameState> waitingForPlayersGameStateFactory() {
+    public Function<KozelGame, GameState> waitingForPlayersGameStateFactory() {
         return this::waitingForPlayersGameState;
+    }
+
+    @Bean
+    public BiFunction<Integer, Integer, Integer> randomIntGenerator() {
+        return (Integer lower, Integer upper) -> {
+            var rnd = new Random();
+            return rnd.nextInt(upper - lower) + lower;
+        };
     }
 
     @Bean

@@ -20,4 +20,5 @@ public class Player implements Cloneable {
     private String role;
     private Set<Card> hand;
     private boolean isCurrent;
+    private boolean isDealer;
 }

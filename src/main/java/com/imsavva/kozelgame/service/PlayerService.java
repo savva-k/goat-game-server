@@ -62,11 +62,13 @@ public class PlayerService {
         return response;
     }
 
-    private Player getCopyWithoutCards(Player player) {
+    public Player getCopyWithoutCards(Player player) {
         if (player == null) return null;
         var copy = new Player(player.getId(), player.getName());
         copy.setCurrent(player.isCurrent());
         copy.setRole(player.getRole());
+        copy.setDealer(player.isDealer());
+        copy.setCurrent(player.isCurrent());
         return copy;
     }
 

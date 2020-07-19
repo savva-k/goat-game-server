@@ -18,7 +18,6 @@ public class KozelGame {
     private GameState state;
     private Queue<String> availableRoles = new LinkedList<>(Arrays.asList("player1", "player2", "player3"));
     private List<Player> players = new ArrayList<>();
-    private Player currentPlayer;
 
     // teams / teams generation after all talon actions done (in NewRoundState),
     // then change to a different state depending on the game mode
