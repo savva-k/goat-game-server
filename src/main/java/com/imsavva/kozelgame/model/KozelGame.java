@@ -43,8 +43,8 @@ public class KozelGame {
 
     }
 
-    public void playCard(Player player, Card card) {
-
+    public void handlePlayersTurn(Player player, Card card) {
+        this.state.handlePlayersTurn(player, card);
     }
 
 }

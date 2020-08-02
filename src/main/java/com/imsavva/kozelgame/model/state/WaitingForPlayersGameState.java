@@ -1,9 +1,11 @@
 package com.imsavva.kozelgame.model.state;
 
+import com.imsavva.kozelgame.model.Card;
 import com.imsavva.kozelgame.model.GameConstants;
 import com.imsavva.kozelgame.model.KozelGame;
 import com.imsavva.kozelgame.model.Scene;
 import com.imsavva.kozelgame.model.beans.Player;
+import com.imsavva.kozelgame.model.exceptions.InvalidActionException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.function.BiFunction;
@@ -34,5 +36,10 @@ public class WaitingForPlayersGameState extends AbstractGameState {
             dealer.setDealer(true);
             this.game.setState(newRoundGameStateFactory.apply(this.game));
         }
+    }
+
+    @Override
+    public void handlePlayersTurn(Player player, Card card) {
+        throw new InvalidActionException();
     }
 }

@@ -28,6 +28,11 @@ public class NewRoundState extends AbstractGameState {
         throw new InvalidActionException("Cannot add a player: the game is already in progress!");
     }
 
+    @Override
+    public void handlePlayersTurn(Player player, Card card) {
+        System.out.println(String.format("Handling turn: card %s from %s", card, player));
+    }
+
     private void giveCards() {
         var players = this.game.getPlayers();
         var deck = deckFactory.get();
